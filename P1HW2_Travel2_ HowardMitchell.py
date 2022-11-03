@@ -11,40 +11,52 @@
 # output: did you go over or under
 
 # out variable
+def main():
+    gas = 0.0
+    food = 0.0
+    hotal = 0.0
+    totalExpenses = 0.0 # gas + food + hotel
+    budget = 0.0
+    destination = ""
 
-gas = 0.0
-food = 0.0
-hotal = 0.0
-totalExpenses = 0.0 # gas + food + hotel
-budget = 0.0
-destination = ""
+    print( "This program calculates on the display travel expenses")
 
-print( "This program calculates on the display travel expenses")
+    print("Enter your budget: ")
+    budget = float (input())
 
-print("Enter your budget: ")
-budget = float (input())
+    destination = input("Where are you heading? ")
 
-destination = input("Where are you heading? ")
+    print("ok, let's total your expenses.")
+    print("Gas: $")
+    gas = float(input())
 
-print("ok, let's total your expenses.")
-print("Gas: $")
-gas = float(input())
+    print("Hotel: $")
+    hotel = float(input())
 
-print("Hotel: $")
-hotel = float(input())
+    print("food: $")
+    food = float(input())
 
-print("food: $")
-food = float(input())
+    #add everything up
+    totalExpenses = gas + hotel + food
+    # output - did they go over budget?
 
-#add everything up
-totalExpenses = gas + hotel + food
-# output - did they go over budget?
+    print ("Your total expenses are: $", totalExpenses)
+    print("Your  budget was: $", budget)
 
-print ("Your total expenses are: $", totalExpenses)
-print("Your  budget was: $", budget)
+    if totalExpenses > budget:
+        print("you went over budget!")
+        print("by: $", totalExpenses - budget)
+    else:
+        print("You stayed within your budget.")
+        print(" money left: $" , budget - totalExpenses)
 
-if totalExpenses > budget:
-    print("you went over budget!")
-else:
-    print("You stayed within your budget.")
 
+    goAgain = input("run again? y/n")
+    if goAgain == "y":
+        main()
+    else:
+        print("goodbye.")
+
+# start the program
+main()
+              
